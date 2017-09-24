@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<mate charset="UTF-8">
+	<title>注册页面</title>
+	<script>
+	    function IsDigit(jjj) 
+        { 
+            return (('0'<=jjj) && (jjj<='9')); 
+        } 
+        function IsAlpha(jjj) 
+        { 
+            return ((('a'<=jjj) && (jjj<='z')) || (('A'<=jjj) && (jjj<='Z'))) 
+        } 
+        function IsAlphap(ppp) 
+        { 
+            return ((('a'<=ppp) && (ppp<='z')) || (('A'<=ppp) && (ppp<='Z'))) 
+        } 
+        function pmima(ppp) 
+        { 
+            return (ppp=='\*'||ppp=='\?'||ppp=='\？') 
+        } 
+		function a()
+		{
+			var x=document.getElementById("user").value;
+			var abc;
+			var jjj;
+			for (abc=0;abc<x.length;abc++) 
+            { 
+                 jjj = x.charAt(abc); 
+                 if (!(IsDigit(jjj) || IsAlpha(jjj))) 
+                 { 
+                     return false; 
+                 } 
+            } 
+              return true; 
+        } 
+        function b()
+		{
+			var xy=document.getElementById("key").value;
+			var ab;
+			var ppp;
+			for (ab=0;ab<xy.length;ab++) 
+            { 
+                 ppp = xy.charAt(ab); 
+                 if (!(pmima(ppp) || IsAlphap(ppp))) 
+                 { 
+                     return false; 
+                 } 
+            } 
+              return true; 
+        } 
+        function docheck() 
+        { 
+            if(document.getElementById("user").value=="") 
+             { 
+                alert("请填写用户名"); 
+                return false; 
+             } 
+            else if(!a()) 
+            { 
+             alert("用户名只能使用字母和数字"); 
+             return false; 
+             } 
+            else if(document.getElementById("key").value=="") 
+            { 
+             alert("请填写密码"); 
+             return false; 
+            }
+            else if(!b()) 
+            { 
+             alert("密码只能用字母，'*'和'?'"); 
+             return false; 
+            } 
+            else if(document.getElementById("rekey").value=="") 
+            { 
+             alert("请填写确认密码"); 
+             return false; 
+            }
+            else if(document.getElementById("key").value !=document.getElementById("rekey").value)
+            { 
+            alert("两次密码不一致"); 
+            return false; 
+             }
+             else
+             {
+             	alert("成功注册！"); 
+             } 
+         }
+	</script>
+	<style>
+		#ground{
+			top:150px;
+			width: 600px;
+            height: 350px;
+            background:skyblue;
+            position:relative;
+		}
+		#input{
+			position: absolute;
+            left: 250px;
+            top: 310px;
+		}
+		#z1{
+			position: absolute;
+			left: 240px;
+            top: 30px;
+            font-size:30px;
+            color:gray;
+		}
+		#z2{
+			position: absolute;
+			left: 156px;
+            top: 130px;
+            font-size:17px;
+            color:gray;
+		}
+		#z3{
+			position: absolute;
+			left: 156px;
+            top: 165px;
+            font-size:17px;
+            color:gray;
+		}
+		#z4{
+			position: absolute;
+			left: 156px;
+            top: 200px;
+            font-size:17px;
+            color:gray;
+		}
+		#z5{
+			position: absolute;
+			left: 164px;
+            top: 235px;
+            font-size:17px;
+            color:gray;
+		}
+		#k1{
+			position: absolute;
+			left: 248px;
+            top: 132px;
+            font-size:15px;
+            color:gray;
+		}
+		#k2{
+			position: absolute;
+			left: 248px;
+            top: 166px;
+            font-size:15px;
+            color:gray;
+		}
+		#k3{
+			position: absolute;
+			left: 248px;
+            top: 201px;
+            font-size:15px;
+            color:gray;
+		}
+		#k4{
+			position: absolute;
+			left: 248px;
+            top: 236px;
+            font-size:17px;
+            color:gray;
+		}
+	</style>
+	
+</head>
+<body> 
+<center> 
+<div id="ground">
+<div id="input">
+<input type="submit" value="提交" style="width:100px;height:30px;" onclick="return docheck()">
+</div>
+<div id="z1"><strong>用户注册</strong></div>
+<div id="z2"><strong>*用户名称：</strong></div>
+<div id="z3"><strong>*输入密码：</strong></div> 
+<div id="z4"><strong>*确认密码：</strong></div>
+<div id="z5"><strong>选择性别：</strong></div>
+<div id="k1"><input type="text" id="user"/ name="UserName" value placeholder="请输入用户名"></div>
+<div id="k2"><input type="password" id="key"/ name="keyword" value placeholder="请输入密码" )></div>
+<div id="k3"><input type="password" id="rekey"/ name="rekeyword" value placeholder="请再次输入密码" ></div>
+<div id="k4"><label><input name="sex" type="radio" value="" />男</label> 
+<label><input name="sex" type="radio" value="" />女</label></div>
+</div>
+<script>
+</body>
+</center>
+</html>
